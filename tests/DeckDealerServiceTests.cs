@@ -47,5 +47,18 @@ namespace DeckOfCards.Tests
 
             service.DealOneCard().Should().Be(card);
         }
+
+        [Fact]
+        public void DeckDealerServiceShuffle_ShouldChangeTheDeckCardsOrder()
+        {
+            Deck deck = new Deck();
+            List<Card> cards = new List<Card>(deck.Cards);
+
+            DeckDealerService service = new DeckDealerService(deck);
+
+            service.Shuffle();
+
+            deck.Cards.Should().NotEqual(cards);
+        }
     }
 }

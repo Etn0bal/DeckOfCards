@@ -8,7 +8,13 @@ namespace DeckOfCards
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Deck deck = new Deck();
+
+            DeckDealerService deckDealerService = new DeckDealerService(deck);
+
+            deckDealerService.Shuffle();
+
+            Console.WriteLine(deckDealerService.ToString());
         }
     }
 }
