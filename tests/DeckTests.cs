@@ -7,9 +7,11 @@ namespace DeckOfCards.Tests
     public class DeckTests
     {
         [Fact]
-        public void DefaultTest()
+        public void DeckInitialization_ShouldCreateCards()
         {
-            true.Should().BeTrue();
+            var deck = new Deck();
+
+            deck.Cards.Count.Should().Be(52);
         }
     }
 }
