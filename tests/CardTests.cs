@@ -20,5 +20,15 @@ namespace DeckOfCards.Tests
 
             card.ToString().Should().Be(expectedOutput);
         }
+
+        [Fact]
+        public void CardToString_ShouldThrowIfNoSymbolForSuit()
+        {
+            var card = new Card(Value.Ace, (Suit) 4);
+
+            Action act = () => card.ToString();
+
+            act.Should().Throw<Exception>();
+        }
     }
 }

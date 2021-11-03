@@ -1,3 +1,5 @@
+using System;
+
 namespace DeckOfCards {
     public class Card
     {
@@ -16,7 +18,8 @@ namespace DeckOfCards {
                 Suit.Clubs => "♣",
                 Suit.Diamonds => "♦",
                 Suit.Hearts => "♥",
-                Suit.Spades => "♠"
+                Suit.Spades => "♠",
+                _ => throw new Exception($"No symbol found for suit {_suit.ToString()}")
             };
             int intValue = (int)_value;
             string parsedValue = InBetween(intValue, 2, 10) ? intValue.ToString() : _value.ToString();
