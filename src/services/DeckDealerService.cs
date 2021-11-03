@@ -18,5 +18,10 @@ namespace DeckOfCards {
             return card;
         }
 
+        public void ChangeDeck(Deck deck)
+        {
+            _deck = deck;
+        }
+
     }
 }
