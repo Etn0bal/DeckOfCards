@@ -16,8 +16,7 @@ namespace DeckOfCards {
                 Suit.Clubs => "♣",
                 Suit.Diamonds => "♦",
                 Suit.Hearts => "♥",
-                Suit.Spades => "♠",
-                _ => null,
+                Suit.Spades => "♠"
             };
             int intValue = (int)_value;
             string parsedValue = InBetween(intValue, 2, 10) ? intValue.ToString() : _value.ToString();
