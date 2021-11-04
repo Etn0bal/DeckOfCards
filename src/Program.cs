@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using System.Diagnostics.CodeAnalysis;
 
 namespace DeckOfCards
@@ -8,13 +10,14 @@ namespace DeckOfCards
     {
         static void Main(string[] args)
         {
-            Deck deck = new Deck();
-
-            DeckDealerService deckDealerService = new DeckDealerService(deck);
-
-            deckDealerService.Shuffle();
-
-            Console.WriteLine(deckDealerService.ToString());
+            CreateHostBuilder(args).Build().Run();
         }
+
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                });
     }
 }
