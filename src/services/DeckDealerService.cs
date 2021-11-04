@@ -1,7 +1,7 @@
 using System;
 
 namespace DeckOfCards {
-    public class DeckDealerService {
+    public class DeckDealerService : IDeckDealerService {
         private Deck _deck { get; set; }
         private readonly Random _random;
 
