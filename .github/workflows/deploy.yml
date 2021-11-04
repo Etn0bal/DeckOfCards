@@ -2,7 +2,7 @@ name: .NET
 
 on:
   push:
-    branches: [ DeployToAzure ]
+    branches: [ feature/DeployToAzure ]
 jobs:
   build:
 
