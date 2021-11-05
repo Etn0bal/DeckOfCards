@@ -60,5 +60,19 @@ namespace DeckOfCards.Tests
 
             deck.Cards.Should().NotEqual(cards);
         }
+
+                [Fact]
+        public void DeckDealerServiceShuffle_ShouldThrowIfNoCard()
+        {
+            Deck deck = new Deck();
+            List<Card> cards = new List<Card>();
+            deck.Cards = cards;
+
+            DeckDealerService service = new DeckDealerService(deck);
+
+            Action act = () => service.Shuffle();
+
+            act.Should().Throw<Exception>();
+        }
     }
 }
