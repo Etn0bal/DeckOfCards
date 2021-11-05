@@ -29,6 +29,9 @@ namespace DeckOfCards {
 
         public void Shuffle()
         {
+            if (_deck.Cards.Count == 0)
+                throw new Exception("The deck doesn't contain any card to shuffle");
+
             for (int i = _deck.Cards.Count - 1; i > 0; i--)
             {
                 int n = _random.Next(i + 1);
