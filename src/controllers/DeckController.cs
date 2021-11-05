@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Diagnostics.CodeAnalysis;
 
 namespace DeckOfCards
@@ -30,9 +31,16 @@ namespace DeckOfCards
         [Route("[action]")]
         public ActionResult<string> Shuffle()
         {
-            _deckDealerService.Shuffle();
+            try 
+            {
+                _deckDealerService.Shuffle();
+                return Ok("Cards were shuffled successfully");
+            } 
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
 
-            return Ok("Cards were shuffle successfully");
         }
 
         [HttpPost]
