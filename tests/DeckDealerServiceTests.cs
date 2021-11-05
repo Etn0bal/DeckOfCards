@@ -61,7 +61,7 @@ namespace DeckOfCards.Tests
             deck.Cards.Should().NotEqual(cards);
         }
 
-                [Fact]
+        [Fact]
         public void DeckDealerServiceShuffle_ShouldThrowIfNoCard()
         {
             Deck deck = new Deck();
